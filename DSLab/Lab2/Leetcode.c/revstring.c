@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+/*char * reverseWords(char * s){
+int length,i;
+length=strlen(s);
+while(length>=0 && length<=pow(10,4)){
+for(i=length-1;i>=0;i--)
+{
+    s=s[i];
+}
+}
+}
+int main()
+{
+    char mystr[10];
+    printf("Prog to rev a given string");
+    printf("Please insert the string you wish to rev");
+    scanf("%s",&mystr);
+    char * reverseWords(mystr);
+    printf("%s",mystr);
+}*/
+string reverseWords(string s) {
+        string result;
+        int i = 0, n = s.length();
+        
+        while(i < n){
+			//to detect spaces and ignore them
+            while(i < n && s[i] == ' ') i++;
+            
+            if(i >= n) break;
+            
+            int j = i;
+            
+			//to detect characters and break when we detect any space
+            while(j < n && s[j] != ' ') j++;
+            
+			//to take out the first word
+            string sub = s.substr(i, j-i);
+            
+            if(result.length() == 0) result = sub;
+            
+            else result = sub + " " + result;
+            
+            i = j+1;
+        }
+        
+        return result;
